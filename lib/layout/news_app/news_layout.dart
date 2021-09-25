@@ -35,15 +35,15 @@ class NewsLayout extends StatelessWidget {
                   navigateTo(context, SearchScreen());
                 },
               ),
-              IconButton(
-                  icon:Icon(
-                    Icons.brightness_4_outlined,
-                    color: Colors.deepOrange,
-                  ),
-                onPressed: (){
-                  NewsCubit.get(context).changeAppMode();
-                },
-              ),
+              // IconButton(
+              //     icon:Icon(
+              //       Icons.brightness_4_outlined,
+              //       color: Colors.deepOrange,
+              //     ),
+              //   onPressed: (){
+              //     NewsCubit.get(context).changeAppMode();
+              //   },
+              // ),
             ],
 
 
