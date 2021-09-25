@@ -47,6 +47,7 @@ class NewsCubit extends Cubit <NewsStates>
   List <dynamic> science = [];
 
 
+
   List <Widget> Screens = [
     BusinessScreen (),
     SportsScreen (),
@@ -149,5 +150,26 @@ class NewsCubit extends Cubit <NewsStates>
       }
 
   }
+  List <dynamic> search = [];
+  void getSearch(String value){
+    emit(NewsLoadingSearcheState());
+    search =  [];
+    DioHelper.getData(
+      url:'v2/everything',
+      query: {
+        'q':'$value',
+        'apiKey'  :'321ab7c1785f413e88c0d8c3abf8e769',
+      },
+    ).then((value) {
+      search = value?.data['articles'];
+      // print(value?.data.toString());
+      emit(NewsGetSearchSuccessState());
+      print(search[0]['title']);
+    }).catchError((error){
+      print('error++'+error.toString());
+      emit(NewsGetSearcheErrorState(error.toString()));
+    });
+
+}
 
 }

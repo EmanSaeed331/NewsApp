@@ -7,13 +7,14 @@ Widget defaultFormField({
   Function onSubmit,
   Function onChange,
   Function onTap,
+  Color color ,
   bool isPassword = false,
   @required Function validate,
   @required String label,
   @required IconData prefix,
   IconData suffix,
   Function suffixPressed,
-  bool isClickable = true,
+  bool isClickable = true, TextStyle style, InputDecoration decoration,
 }) =>
     TextFormField(
       controller: controller,
@@ -23,9 +24,15 @@ Widget defaultFormField({
       onFieldSubmitted: onSubmit,
       onChanged: onChange,
       onTap: onTap,
+      style:TextStyle(
+        color:color,
+      ),
       validator: validate,
       decoration: InputDecoration(
         labelText: label,
+        labelStyle:TextStyle(
+          color:color,
+        ) ,
         prefixIcon: Icon(
           prefix,
         ),
